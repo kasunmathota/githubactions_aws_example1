@@ -1,4 +1,5 @@
 FROM openjdk:8
-ADD build/libs/HelloTest-0.0.1-SNAPSHOT.jar HelloTest-0.0.1-SNAPSHOT.jar
+ARG VERSION=0.0.2
+ADD build/libs/HelloTest-$VERSION.jar HelloTest.jar
 EXPOSE 8080
-ENTRYPOINT ["java", "-jar", "HelloTest-0.0.1-SNAPSHOT.jar"]
+ENTRYPOINT ["java", "-jar", "HelloTest.jar"]

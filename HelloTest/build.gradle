@@ -4,8 +4,11 @@ plugins {
 	id 'io.spring.dependency-management' version '1.0.15.RELEASE'
 }
 
+def props = new Properties()
+file("src/main/resources/application.properties").withInputStream { props.load(it) }
+
 group = 'com.kas.studies'
-version = '0.0.1-SNAPSHOT'
+version = props.getProperty("version")
 sourceCompatibility = '1.8'
 
 repositories {
